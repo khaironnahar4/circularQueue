@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        class Queue{
+            constructor(size){
+                this.max=size;
+                this.array=new Array(size);
+                this.arraySize=0;
+                this.front=-1;
+                this.rear=-1;
+            }
+            enqueue(value){
+                if(this.arraySize!=this.max){
+                    if(this.rear==this.max-1){
+                        this.rear=0;
+                    }else{
+                    this.rear++;
+                    }
+                    this.array[this.rear]=value;
+                    this.arraySize++;
+                    if(this.front==-1){
+                        this.front=this.rear;
+                    }
+                }
+            }
+            dequeue(){
+                if(this.arraySize!=0){
+                    this.array[this.front]=null;
+                    this.arraySize--;
+                    if(this.front==this.max-1){
+                        this.front=0;
+                    }else{
+                    this.front++;
+                    }
+                }else{
+                    this.front=-1;
+                    this.rear=-1;
+                }
+            }
+        }
+        let queue = new Queue(5);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
